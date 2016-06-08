@@ -1,0 +1,9 @@
+/.idea/
+*~
+*.pyc
+*.pyo
+/.hg/
+/public/
+settings_local.py
+development_overrides.py
+*.sqlite*

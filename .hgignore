@@ -1,0 +1,8 @@
+syntax: regexp
+#^\..*$
+syntax: regexp
+#^.*~$
+syntax: regexp
+^.*\.pyc$
+syntax: regexp
+^.*development_overrides\.py$

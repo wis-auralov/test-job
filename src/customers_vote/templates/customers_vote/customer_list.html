@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head_additional %}
+    <script src="{% static 'customers_vote/js/vote.js' %}"></script>
+{% endblock head_additional %}
+
+{% block page_body %}
+    <div class="row">
+        {% for customer in object_list %}
+            <div class="col-md-4 customer-item">
+                <a href="#">
+                    <img class="img-responsive" src="{{ customer.get_avatar_url }}">
+                </a>
+                <h4>
+                    <a href="{% url 'customers_vote:vote' customer_pk=customer.pk %}"
+                       class="btn btn-primary margin-right-10 vote-btn" role="button">
+                        +1
+                    </a>
+                    <span>Количество голосов:
+                        <strong class="vote-counter">
+                            {% if customer.customervote.count %}
+                                {{ customer.customervote.count }}
+                            {% else %}
+                                0
+                            {% endif %}
+                        </strong>
+                    </span>
+                </h4>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock page_body %}
